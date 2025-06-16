@@ -16,4 +16,5 @@ Rails.application.routes.draw do
 
   get "/users/all", to: "users#all", as: :all_users
   get "/users/:id/profile", to: "users#profile", as: :user_profile
+  get "/users/:id/profile/new", to: "users#new_profile", as: :new_user_profile
 end
