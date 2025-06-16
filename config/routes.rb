@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "/users/all", to: "users#all", as: :all_users
+  get "/users/:id/profile", to: "users#profile", as: :user_profile
 end
