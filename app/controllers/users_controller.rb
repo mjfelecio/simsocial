@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: %i[ new_profile edit_profile update_profile ]
+
   def index
     @users = User.all
   end
