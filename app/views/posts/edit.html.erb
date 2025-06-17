@@ -7,6 +7,6 @@
 <br>
 
 <div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+  <%= link_to "Show this post", [current_user, @post] %> |
+  <%= link_to "Back to posts", user_posts_path(current_user) %>
 </div>

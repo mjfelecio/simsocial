@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def new_profile
@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def edit_profile
-    @user = current_user
   end
 
   def update_profile
@@ -21,7 +20,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to root_path, notice: "User profile was successfully #{has_profile? ? "updated" : "created"}." }
-        format.json { render :profile, status: has_profile? ? :see_other : :created, location: @user }
+        format.json { render :profile, status: has_profile? ? :ok : :created, location: @user }
       else
         format.html { render :new_profile, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
