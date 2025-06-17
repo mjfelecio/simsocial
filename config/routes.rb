@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   root "home#index"
 
   devise_for :users
-  resources :posts
+
+  resources :users do
+    resources :posts
+  end
 
   get "/users", to: "users#index", as: :users
   get "/users/:id/profile", to: "users#profile", as: :user_profile
