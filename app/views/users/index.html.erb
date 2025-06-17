@@ -1,0 +1,9 @@
+<h1>All Users</h1>
+
+<ul>
+	<% @users.each do |user| %>
+		<div style="border-color: red;">
+			<%= link_to user.username, user_profile_path(user) %>
+		</div>
+	<% end %>
+</ul>
