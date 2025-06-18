@@ -31,11 +31,8 @@
 
       <!-- Signup prompt -->
       <div class="text-sm font-medium text-gray-500">
-        Not registered? <a href="#" class="text-blue-700 hover:underline">Create account</a>
+        Not registered? <%= render "devise/shared/signup_link" %>
       </div>
-
-      <!-- Additional devise links -->
-      <%= render "devise/shared/links" %>
     </div>
   </div>
 <% end %>
