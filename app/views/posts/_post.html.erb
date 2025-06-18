@@ -12,33 +12,38 @@
         </div>
         <%# Edit Delete Button %>
         <div class="flex gap-1">
+          <%= link_to edit_user_post_path(current_user, post) do %>
           <div class="icon-button pl-[10px] ">
             <%= image_tag "icons/edit.svg", alt: "Edit Post Button", class: "size-4" %>
           </div>
+        <% end %>
+        <%# TODO: Add confirmation modal before you delete a post %>
+        <%= button_to [current_user, post], method: :delete, data: { turbo_method: :delete } do %>
           <div class="icon-button">
             <%= image_tag "icons/delete.svg", alt: "Delete Post Button", class: "size-4" %>
           </div>
-        </div>
-      </div>
-      <p class="text-xl/tight font-semibold">
-        <%= post.title %>
-      </p>
-    </div>
-    <div class="py-3">
-      <p class="text-sm">
-        <%= post.content %>
-      </p>
-    </div>
-    <%# Interactive Buttons %>
-    <div class="flex gap-2">
-      <div class="icon-button">
-        <%= image_tag "icons/like.svg", alt: "Like Button", class: "size-4" %>
-        <p class="text-sm font-medium">3</p>
-      </div>
-      <div class="icon-button">
-        <%= image_tag "icons/comment.svg", alt: "Like Button", class: "size-4" %>
-        <p class="text-sm font-medium">5</p>
-      </div>
+        <% end %>
     </div>
   </div>
+  <p class="text-xl/tight font-semibold">
+    <%= post.title %>
+  </p>
+</div>
+<div class="py-3">
+  <p class="text-sm">
+    <%= post.content %>
+  </p>
+</div>
+<%# Interactive Buttons %>
+<div class="flex gap-2">
+  <div class="icon-button">
+    <%= image_tag "icons/like.svg", alt: "Like Button", class: "size-4" %>
+    <p class="text-sm font-medium">3</p>
+  </div>
+  <div class="icon-button">
+    <%= image_tag "icons/comment.svg", alt: "Like Button", class: "size-4" %>
+    <p class="text-sm font-medium">5</p>
+  </div>
+</div>
+</div>
 <% end %>
