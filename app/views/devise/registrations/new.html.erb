@@ -7,13 +7,13 @@
       <h5 class="text-3xl text-center font-medium text-gray-900 mb-4">Sign up</h5>
 
       <!-- Email Field -->
-      <div class="field">
+      <div class="field mb-4">
         <%= f.label :email, class: "form-label" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-field" %>
       </div>
 
       <!-- Password Field -->
-      <div class="field">
+      <div class="field mb-4">
         <%= f.label :password, class: "form-label" %>
         <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -22,14 +22,14 @@
       </div>
 
       <!-- Confirm Password Field -->
-      <div class="field">
-        <%= f.label :password_confirmation, class: "form-label" %><br />
+      <div class="field mb-4">
+        <%= f.label "Confirm Password", class: "form-label" %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-text-field" %>
       </div>
 
       <!-- Sign Up Button -->
-      <div class="actions">
-        <%= f.submit "Sign up", class: "primary-btn my-4 w-full" %>
+      <div class="actions mb-4">
+        <%= f.submit "Sign up", class: "primary-btn w-full" %>
       </div>
       <p>
 
