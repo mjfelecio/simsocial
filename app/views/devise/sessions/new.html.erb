@@ -3,32 +3,34 @@
     <div class="w-full max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm">
       <!-- Form title -->
       <h5 class="text-3xl text-center font-medium text-gray-900 mb-4">Log in</h5>
-
       <!-- Email field -->
       <div class="field mb-4">
         <%= f.label :email, class: "form-label" %><br />
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-text-field" %>
       </div>
-
       <!-- Password field -->
-      <div class="field mb-4">
+      <div class="field mb-2">
         <%= f.label :password, class: "form-label" %><br />
         <%= f.password_field :password, autocomplete: "current-password", class: "form-text-field" %>
       </div>
-
-      <% if devise_mapping.rememberable? %>
-        <!-- Remember me checkbox -->
-        <div class="field flex items-center mb-4">
-          <%= f.check_box :remember_me, class: "w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300" %>
-          <%= f.label :remember_me, class: "form-label ml-2" %>
-        </div>
-      <% end %>
-
+      <div>
+        <% if devise_mapping.rememberable? %>
+          <!-- Remember me checkbox -->
+          <div class="field flex items-center justify-between mb-6">
+            <div>
+              <%= f.check_box :remember_me, class: "w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300" %>
+              <%= f.label :remember_me, class: "form-label ml-2" %>
+            </div>
+            <div>
+              <%= render "devise/shared/forgot_password_link" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
       <!-- Submit button -->
       <div class="actions mb-4">
         <%= f.submit "Log in", class: "w-full primary-btn" %>
       </div>
-
       <!-- Signup prompt -->
       <div class="text-sm font-medium text-gray-500">
         Not registered? <%= render "devise/shared/signup_link" %>
