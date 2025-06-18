@@ -6,7 +6,7 @@
     <%= link_to 'Home', "/", class: "hover:text-blue-600 transition" %>
     <%= link_to 'Profile', user_signed_in? ? user_profile_path(current_user) : new_user_session_path, class: "hover:text-blue-600 transition" %>
     <%= link_to 'Users', users_path, class: "hover:text-blue-600 transition" %>
-    <%= link_to "Create Post", user_signed_in? ? new_user_post_path(current_user) : new_user_session_path, class: "bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md shadow transition" %>
+    <%= link_to "Create Post", user_signed_in? ? new_user_post_path(current_user) : new_user_session_path, class: "primary-btn" %>
     
     <div class="space-x-2 text-gray-700 font-medium flex items-center">
       <% if user_signed_in? %>
