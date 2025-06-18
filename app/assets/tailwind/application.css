@@ -14,4 +14,9 @@
   .side-pane {
     @apply bg-gray-50 w-[25%];
   }
+
+  .icon-button {
+    @apply flex items-center justify-center rounded-xl bg-gray-200 
+           hover:bg-gray-300 w-fit p-0.5 px-2 gap-1.5 transition cursor-pointer;
+  }
 }

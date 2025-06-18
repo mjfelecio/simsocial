@@ -1,11 +1,11 @@
 <div 
   id="<%= dom_id post %>" 
-  class="p-4 m-4 bg-gray-50 rounded-xl"
+  class="p-4 m-4 bg-gray-50 rounded-xl shadow"
 >
   <div>
     <div class="flex gap-2">
-    <img src="https://styles.redditmedia.com/t5_61eeg4/styles/communityIcon_rwdnivzushte1.jpg?width=48&amp;height=48&amp;frame=1&amp;auto=webp&amp;crop=48:48,smart&amp;s=c27504576052175f2d4baf12b7a0a7137b94c98c" alt="r/Pasig icon" class="mb-0 shreddit-subreddit-icon__icon rounded-full overflow-hidden nd:visible nd:bg-secondary-background  w-full h-full" width="24" style="width: 24px;" loading="lazy">
-    <p class="text-[12px]"> <%= post.user.username %> • 8 hours ago </p>
+      <img src="https://styles.redditmedia.com/t5_61eeg4/styles/communityIcon_rwdnivzushte1.jpg?width=48&amp;height=48&amp;frame=1&amp;auto=webp&amp;crop=48:48,smart&amp;s=c27504576052175f2d4baf12b7a0a7137b94c98c" alt="r/Pasig icon" class="mb-0 shreddit-subreddit-icon__icon rounded-full overflow-hidden nd:visible nd:bg-secondary-background  w-full h-full" width="24" style="width: 24px;" loading="lazy">
+      <p class="text-[12px]"> <%= post.user.username %> • 8 hours ago </p>
     </div>
     <p class="text-xl/tight font-semibold">
       <%= post.title %>
@@ -16,6 +16,15 @@
       <%= post.content %>
     </p>
   </div>
-  <div>
+  <%# Interactive Buttons %>
+  <div class="flex gap-2">
+    <div class="icon-button">
+      <%= image_tag "icons/like.svg", alt: "Like Button", class: "size-4" %>
+      <p class="text-sm font-medium">3</p>
+    </div>
+    <div class="icon-button">
+      <%= image_tag "icons/comment.svg", alt: "Like Button", class: "size-4" %>
+      <p class="text-sm font-medium">5</p>
+    </div>
   </div>
 </div>
