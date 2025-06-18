@@ -29,9 +29,14 @@
 
       <!-- Sign Up Button -->
       <div class="actions">
-        <%= f.submit "Sign up", class: "primary-btn mt-4 w-full" %>
+        <%= f.submit "Sign up", class: "primary-btn my-4 w-full" %>
       </div>
-      <%= render "devise/shared/links" %>
+      <p>
+
+      <!-- Log In Prompt -->
+      <div class="text-sm font-medium text-gray-500">
+        Already have an account? <%= render "devise/shared/links" %>
+      </div>
     </div>
   </div>
 <% end %>
