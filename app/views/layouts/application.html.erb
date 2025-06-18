@@ -24,13 +24,14 @@
 
   <body>
     <%= render "layouts/navbar" %>
-
-    
-
     <div class="flex flex-row w-full min-h-screen">
       <div class="side-pane">
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <p class="notice text-center font-semibold rounded-md text-white bg-blue-600 p-2 m-2">
+          <%= notice %>
+        </p>
+        <p class="alert text-center font-semibold rounded-md text-white bg-red-600 p-2 m-2">
+          <%= alert %>
+        </p>
       </div>
       <div class="flex-1">
         <%= yield %>
