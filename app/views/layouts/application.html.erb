@@ -24,8 +24,18 @@
 
   <body>
     <%= render "layouts/navbar" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    
+
+    <div class="flex flex-row w-full min-h-screen">
+      <div class="side-pane">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      </div>
+      <div class="flex-1">
+        <%= yield %>
+      </div>
+      <div class="side-pane"></div>
+    </div>
   </body>
 </html>
