@@ -1,5 +1,14 @@
-<div>
-	<p>
-	<%= comment.content  %>
-	</p>
+<div class="flex p-2 gap-2 ">
+  <div class="p-0.5 flex-shrink-0">
+    <%# Sample Profile Picture %>
+    <img class="w-8 h-8 rounded-full" src="https://fastly.picsum.photos/id/941/200/200.jpg?hmac=kQpV3E7TgV1yMW4b1IDbV6zJqEvKVw9CTK4RkI14kmQ" alt="Profile Picture">
+  </div>
+  <%# Comment Container %>
+  <div class="flex flex-col p-0.5">
+    <%# TODO: Replace this with the comment author username and posted date %>
+    <p class="text-sm">@mjfelecio • 6 min ago</p>
+    <p class="text-md py-1.5"> <%= comment.content  %> </p>
+    <%# TODO: Make this comment support likes %>
+    <%= render "likes/likes_button", resource: comment.post %>
+  </div>
 </div>
