@@ -1,1 +1,7 @@
-<h1>This is the home page</h1>
+<% content_for :title, "Posts" %>
+
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+</div>
