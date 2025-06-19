@@ -1,0 +1,16 @@
+<div class="flex items-center p-2 m-1.5 bg-gray-50 hover:ring-2 hover:ring-blue-600 shadow-sm transition rounded-xl cursor-pointer">
+  <div class="shrink-0">
+    <img class="w-8 h-8 rounded-full" src="https://fastly.picsum.photos/id/941/200/200.jpg?hmac=kQpV3E7TgV1yMW4b1IDbV6zJqEvKVw9CTK4RkI14kmQ" alt="Profile Picture">
+  </div>
+  <div class="flex-1 min-w-0 ms-4">
+    <p class="text-sm font-semibold text-gray-900 truncate">
+      <%= user.name %>
+    </p>
+    <p class="text-sm font-medium text-gray-500 truncate">
+      @<%= user.username %>
+    </p>
+  </div>
+  <button class="primary-btn">
+    Follow
+  </button>
+</div>
