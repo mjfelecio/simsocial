@@ -1,9 +1,18 @@
 <%= form_for [@post, @comment] do |form| %>
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_field :content %>
-  </div>
-  <div>
-    <%= form.submit %>
+  <div class="border-2 border-blue-600 p-4 m-4 flex flex-col">
+    <%# Comment Input %>
+    <%= form.text_area :content,
+     class: "w-full mb-1.5 bg-gray-100 rounded-b-none rounded-md p-1 border-b-2 border-b-gray-500 focus:outline-0" 
+    %>
+
+    <%# Button Group %>
+    <div class="flex justify-end gap-2">
+       <div class="font-semibold text-sm cursor-pointer text-white bg-red-600 rounded-md p-1.5 px-2.5 w-fit">
+      <%= button_to "Cancel", "#", class: "cursor-pointer" %>
+      </div>
+      <div class="font-semibold text-sm cursor-pointer text-white bg-blue-600 rounded-md p-1.5 px-2.5 w-fit">
+        <%= form.submit "Comment", class: "cursor-pointer" %>
+      </div>
+    </div>
   </div>
 <% end %>
