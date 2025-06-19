@@ -1,0 +1,8 @@
+<%= button_to [resource, :likes], 
+  params: { resource: resource, likeable_type: resource.class.to_s, likeable_id: resource.id }, 
+  data: { turbo_method: :post }, 
+	class: "icon-button" do 
+%>
+  <%= image_tag "icons/like.svg", alt: "Like Button", class: "size-4" %>
+  <p class="text-sm font-medium"><%= resource.likes.count %></p>
+<% end %>
