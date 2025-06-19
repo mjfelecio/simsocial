@@ -1,8 +1,5 @@
-<p style="color: green"><%= notice %></p>
-
 <%= render @post %>
-
-<%= link_to "Post Comment", new_post_comment_path(@post) %>
+<%= render "comments/form", comment: @comment %>
 
 <% @post.comments.each do |comment| %>
 	<%= render "comments/comment", comment: comment %>
