@@ -4,7 +4,7 @@
 
 <div>
   <%= link_to "Edit this post", edit_user_post_path(current_user, @post) %> |
-  <%= link_to "Back to posts", user_posts_path %>
+  <%= link_to "Back to posts", user_posts_path(current_user) %>
 
   <%= button_to "Destroy this post", [current_user, @post], method: :delete %>
 </div>
