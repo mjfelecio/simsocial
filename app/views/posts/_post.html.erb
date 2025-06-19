@@ -35,7 +35,7 @@
   </div>
   <%# Interactive Buttons %>
   <div class="flex gap-2">
-    <%= link_to "#", class: "icon-button" do %>
+    <%= button_to post_likes_path(post, likeable_type: "Post", likeable_id: post.id), data: { turbo_method: :post }, class: "icon-button" do %>
       <%= image_tag "icons/like.svg", alt: "Like Button", class: "size-4" %>
       <p class="text-sm font-medium"><%= post.likes.count %></p>
     <% end %>
