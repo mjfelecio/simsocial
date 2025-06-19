@@ -1,11 +1,10 @@
 <%= render @post %>
-
-<h1 class="m-4 mb-0 text-xl font-semibold">
-	<%= @post.comments.count %> Comment<%= @post.comments.count == 1 ? "" : "s" %>
+<h1 class="mx-4 mb-0 text-xl font-semibold">
+  <%= @post.comments.count %> Comment<%= @post.comments.count == 1 ? "" : "s" %>
 </h1>
-
 <%= render "comments/form", comment: @comment %>
-
-<% @post.comments.each do |comment| %>
-	<%= render "comments/comment", comment: comment %>
-<% end %>
+<div class="mx-4 flex flex-col gap-2">
+  <% @post.comments.each do |comment| %>
+    <%= render "comments/comment", comment: comment %>
+  <% end %>
+</div>
