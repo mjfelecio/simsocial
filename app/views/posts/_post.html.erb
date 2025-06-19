@@ -1,7 +1,11 @@
-<%= link_to user_post_path(current_user, post) do %>
-  <div 
+<div 
   id="<%= dom_id post %>" 
   class="p-4 m-4 bg-gray-50 rounded-xl shadow cursor-pointer"
+
+  <%# This makes it so that only if we aren't clicking a button or link inside the div
+      We navigate to the full post instead. %>
+  data-url="<%= user_post_path(current_user, post) %>"
+  onclick="if(!event.target.closest('a, button')) { window.location = this.dataset.url }"
 >
     <div>
       <div class="flex justify-between">
@@ -46,4 +50,3 @@
   </div>
 </div>
 </div>
-<% end %>
