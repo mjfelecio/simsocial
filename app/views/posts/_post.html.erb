@@ -38,9 +38,9 @@
   <%# Interactive Buttons %>
   <div class="flex gap-2">
     <%= render "likes/likes_button", resource: post %>
-    <%= link_to "#", class: "icon-button" do %>
+    <%= link_to user_post_path(post.user, post), class: "icon-button" do %>
       <%= image_tag "icons/comment.svg", alt: "Comment Button", class: "size-4" %>
-      <p class="text-sm font-medium">5</p>
+      <p class="text-sm font-medium"><%= post.comments.count %></p>
     <% end %>
   </div>
 </div>
