@@ -11,4 +11,8 @@ Rails.application.routes.draw do
     get "/profile/edit", to: "users#edit_profile"
     patch "/profile", to: "users#update_profile"
   end
+
+  resources :posts do
+    resources :likes, only: [ :create ]
+  end
 end
