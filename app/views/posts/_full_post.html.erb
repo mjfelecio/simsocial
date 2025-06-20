@@ -1,12 +1,10 @@
-<div 
-  id="<%= dom_id post %>" 
-  class="p-4 m-4 ">
+<div id="<%= dom_id post %>" class="p-4 m-2 ">
   <div>
     <div class="flex justify-between">
       <%# User Info %>
       <div class="flex gap-2">
         <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-8 rounded-full" %>
-        <p class="text-[12px]"> <%= post.user.username %> • 8 hours ago </p>
+        <p class="text-sm"> @<%= post.user.username %> • 8 hours ago </p>
       </div>
       <%# Edit Delete Button %>
       <% if current_user == post.user %>
@@ -20,7 +18,7 @@
         </div>
       <% end %>
     </div>
-    <p class="text-xl/tight font-semibold">
+    <p class="text-xl/tight font-semibold py-2">
       <%= post.title %>
     </p>
   </div>
