@@ -4,7 +4,7 @@
   onclick="if(!event.target.closest('a, button')) { window.location = this.dataset.url }"  
 >
   <div class="shrink-0">
-    <img class="w-8 h-8 rounded-full" src="https://fastly.picsum.photos/id/941/200/200.jpg?hmac=kQpV3E7TgV1yMW4b1IDbV6zJqEvKVw9CTK4RkI14kmQ" alt="Profile Picture">
+    <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-8 rounded-full" %>
   </div>
   <div class="flex-1 min-w-0 ms-4">
     <p class="text-sm font-semibold text-gray-900 truncate">
