@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post
-  before_action :set_comment, only: %i[ destroy ]
+  before_action :set_comment, only: %i[ destroy edit update ]
 
   def new
     @comment = @post.comments.build
@@ -22,6 +22,18 @@ class CommentsController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    respond_to do |format|
+      if @comment.update(comment_params)
+        format.html { redirect_to user_post_path(@post.user, @post), notice: "Comment was successfully updated" }
+        format.json { render user_post_path(@post.user, @post), status: :created, location: @comment }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
