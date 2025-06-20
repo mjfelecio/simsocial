@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post
-  before_action :set_comment, only: %i[ edit ]
+  before_action :set_comment, only: %i[ destroy ]
 
   def new
     @comment = @post.comments.build
@@ -22,6 +22,15 @@ class CommentsController < ApplicationController
   end
 
   def edit
+  end
+
+  def destroy
+    @comment.destroy!
+
+    respond_to do |format|
+      format.html { redirect_back_or_to root_path, status: :see_other, notice: "Comment deleted" }
+      format.json { head :no_content }
+    end
   end
 
   private
