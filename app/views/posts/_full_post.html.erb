@@ -1,10 +1,11 @@
 <div id="<%= dom_id post %>" class="p-4 m-2 ">
   <div>
-    <div class="flex justify-between">
+    <div class="flex justify-between items-start">
       <%# User Info %>
-      <div class="flex gap-2">
+      <div class="flex gap-2 items-center">
+	  	<%= link_to(image_tag("icons/arrow-left.svg", alt: "Back Button", class: "icon-button size-6 cursor-pointer"), :back) %>
         <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-8 rounded-full" %>
-        <p class="text-sm"> @<%= post.user.username %> • 8 hours ago </p>
+        <p class="text-sm  place-self-start"> @<%= post.user.username %> • 8 hours ago </p>
       </div>
       <%# Edit Delete Button %>
       <% if current_user == post.user %>
