@@ -1,0 +1,22 @@
+<turbo-frame id="comment_<%= comment.id %>">
+<%= form_for [comment.post, comment] do |form| %>
+  <div class="flex flex-col">
+    <%# Comment Input %>
+    <%= form.text_area :content,
+      class: "scrollbar-hidden w-full mb-1.5 bg-gray-100 rounded-b-none rounded-md p-1.5 border-b-2 border-b-gray-500 focus:outline-0", 
+      data: { controller: "autosize", action: "input->autosize#autoResize" },
+      rows: 1
+    %>
+
+    <%# Button Group %>
+    <div class="flex justify-end gap-2">
+       <div class="font-semibold text-sm  cursor-pointer text-white bg-red-600 rounded-md p-1.5 px-2.5 w-fit">
+      <%= link_to "Cancel", "#", data: { turbo_frame: "comment_#{comment.id}" }, class: "cursor-pointer" %>
+      </div>
+      <div class="font-semibold text-sm cursor-pointer text-white bg-blue-600 rounded-md p-1.5 px-2.5 w-fit">
+        <%= form.submit "Comment", class: "cursor-pointer" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+<turbo-frame>

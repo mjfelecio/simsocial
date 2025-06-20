@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, only: %i[ new edit update destroy ]
-  before_action :authorize_user!, only: %i[ new edit update destroy ]
+  before_action :authorize_user!, only: %i[ edit update destroy ]
 
   # GET /posts or /posts.json
   def index
@@ -10,6 +10,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @comment = Comment.new(post: @post)
   end
 
   # GET /posts/new
@@ -64,6 +65,7 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params.expect(:id))
     end
+
 
     def authorize_user!
       unless current_user == @post.user
