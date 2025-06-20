@@ -3,8 +3,4 @@
   <%= @post.comments.count %> Comment<%= @post.comments.count == 1 ? "" : "s" %>
 </h1>
 <%= render "comments/form", comment: @comment %>
-<div class="mx-4 flex flex-col gap-2">
-  <% @post.comments.each do |comment| %>
-    <%= render "comments/comment", comment: comment %>
-  <% end %>
-</div>
+<%= render "comments/comments", comments: @post.comments %>
