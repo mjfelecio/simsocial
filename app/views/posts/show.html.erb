@@ -1,4 +1,4 @@
-<%= render @post %>
+<%= render "full_post", post: @post %>
 <h1 class="mx-4 mb-0 text-xl font-semibold">
   <%= @post.comments.count %> Comment<%= @post.comments.count == 1 ? "" : "s" %>
 </h1>
