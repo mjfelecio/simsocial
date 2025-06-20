@@ -3,6 +3,6 @@
   <%= @post.comments.count %> Comment<%= @post.comments.count == 1 ? "" : "s" %>
 </h1>
 <div class="m-4 mt-2">
-  <%= render "comments/form", comment: @post.comments.build %>
+  <%= render "comments/form", comment: @comment %>
 </div>
 <%= render "comments/comments", comments: @post.comments %>
