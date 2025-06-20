@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_post
+  before_action :set_comment, only: %i[ edit ]
 
   def new
     @comment = @post.comments.build
@@ -20,14 +21,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
     def set_post
       @post = Post.find(params[:post_id])
     end
 
-    def set_comments
-      @comments = @post.comments
-      @comment = @comments.find_by(id: params[:id])
+    def set_comment
+      @comment = @post.comments.find_by(id: params[:id])
     end
 
     # Only allow a list of trusted parameters through.
