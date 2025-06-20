@@ -1,6 +1,6 @@
 <turbo-frame id="comment_<%= comment.id %>">
 <%= form_for [@post, @comment] do |form| %>
-  <div class="p-4 flex flex-col">
+  <div class="flex flex-col">
     <%# Comment Input %>
     <%= form.text_area :content,
       class: "scrollbar-hidden w-full mb-1.5 bg-gray-100 rounded-b-none rounded-md p-1.5 border-b-2 border-b-gray-500 focus:outline-0", 
