@@ -27,7 +27,7 @@
       </div>
       <p class="text-md py-1.5"> <%= comment.content  %> </p>
       <%# TODO: Make this comment support likes %>
-      <%= render "likes/likes_button", resource: comment.post %>
+      <%= render "likes/likes_button", resource: comment %>
     </div>
   </turbo-frame>
 </div>

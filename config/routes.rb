@@ -16,4 +16,8 @@ Rails.application.routes.draw do
     resources :comments
     resources :likes, only: [ :create ]
   end
+
+  resources :comments do
+    resources :likes, only: [ :create ]
+  end
 end
