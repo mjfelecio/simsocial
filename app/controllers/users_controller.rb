@@ -11,7 +11,12 @@ class UsersController < ApplicationController
   end
 
   def new_profile
-    @user = current_user
+    if has_profile?
+      flash[:notice] = "You already have a profile"
+      redirect_to "/users/#{current_user.id}/profile/edit"
+    else
+      @user = current_user
+    end
   end
 
   def edit_profile
