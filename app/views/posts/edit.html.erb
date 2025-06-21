@@ -1,12 +1,8 @@
-<% content_for :title, "Editing post" %>
+<% content_for :title, "Edit Post" %>
 
-<h1>Editing post</h1>
-
-<%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Show this post", [current_user, @post] %> |
-  <%= link_to "Back to posts", user_posts_path(current_user) %>
+<div class="flex justify-center items-center">
+  <div class="min-w-xl p-6 m-4 bg-white border border-gray-200 rounded-lg shadow-sm">
+    <h1 class="text-3xl text-center font-medium text-gray-900 mb-4">Edit Post</h1>
+    <%= render "form", post: @post %>
+  </div>
 </div>
