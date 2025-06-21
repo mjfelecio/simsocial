@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: %i[ profile edit_profile ]
   before_action :authenticate_user!, only: %i[ new_profile edit_profile update_profile ]
 
   def index
@@ -6,11 +7,16 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @user = User.find(params[:user_id])
+    @posts = @user.posts
   end
 
   def new_profile
-    @user = current_user
+    if has_profile?
+      flash[:notice] = "You already have a profile"
+      redirect_to "/users/#{current_user.id}/profile/edit"
+    else
+      @user = current_user
+    end
   end
 
   def edit_profile
@@ -34,6 +40,10 @@ class UsersController < ApplicationController
     def has_profile?
       # I'll consider having a username as the bare minimum of a profile
       !current_user.username.blank?
+    end
+
+    def set_user
+      @user = User.find(params[:user_id])
     end
 
     def user_params
