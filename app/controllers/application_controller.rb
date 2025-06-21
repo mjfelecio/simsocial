@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   # Redirects the user to create profile after login or signup if they have no username
   def after_sign_in_path_for(resource)
     if current_user.username.blank?
-      new_user_profile_path(current_user)
+      user_new_profile_path(current_user)
     else
       root_path
     end
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_up_path_for(resource)
     if current_user.username.blank?
-      new_user_profile_path(current_user)
+      user_new_profile_path(current_user)
     else
       root_path
     end
