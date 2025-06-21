@@ -7,43 +7,49 @@
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag 'rails_toastify', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'rails_toastify', 'data-turbo-track': 'reload' %>
   </head>
-
   <body>
     <%= render "layouts/navbar" %>
     <div class="flex flex-row w-full min-h-screen">
-      <div class="side-pane">
-        <%# TODO: Make the notice and alert into a toast %>
-        <p 
-          style="display: <%= notice.blank? ? "none" : "block" %> ;" 
-          class="notice text-center font-semibold rounded-md text-white bg-blue-600 p-2 m-2"
-        >
-          <%= notice %>
-        </p>
-        <p 
-          style="display: <%= alert.blank? ? "none" : "block" %> ;" 
-          class="alert text-center font-semibold rounded-md text-white bg-red-600 p-2 m-2"
-        >
-          <%= alert %>
-        </p>
-      </div>
+      <div class="side-pane"></div>
       <div class="flex-1">
         <%= yield %>
       </div>
       <div class="side-pane"></div>
+      <%# Toast %>
+      <% if notice %>
+        <script>
+          RailsToastify.show('<%= notice %>',
+            { theme: '<%= RailsToastify.configuration.notice_theme %>',
+              type: '<%= RailsToastify.configuration.notice_type %>',
+              animation: '<%= RailsToastify.configuration.notice_animation %>',
+              duration: <%= RailsToastify.configuration.notice_duration %>
+            })
+        </script>
+      <% end %>
+      <% if alert %>
+        <script>
+          RailsToastify.show('<%= alert %>',
+            { theme: '<%= RailsToastify.configuration.alert_theme %>',
+              type: '<%= RailsToastify.configuration.alert_type %>',
+              animation: '<%= RailsToastify.configuration.alert_animation %>',
+              duration: <%= RailsToastify.configuration.alert_duration %>
+            })
+        </script>
+      <% end %>
     </div>
+    <%= rails_toastify_container %>
+    <%= rails_toastify_script %>
   </body>
 </html>
