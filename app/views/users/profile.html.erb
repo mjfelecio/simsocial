@@ -1,9 +1,17 @@
 <% content_for :title, "Simple Social | Profile" %>
-
 <div class="flex flex-col justify-center items-center p-4">
   <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-20 rounded-full border-2 border-gray-300 " %>
-	<h3 class="text-2xl font-semibold"><%= @user.name %></h3>
-	<strong>@<%= @user.username %></strong>
+  <h3 class="text-2xl font-semibold"><%= @user.name %></h3>
+  <strong>@<%= @user.username %></strong>
+  <div class="flex gap-4 py-1 p-2 mt-2">
+    <div class="flex flex-col justify-center items-center text-md/tight font-semibold">
+      <p><%= @user.followers.count %></p>
+      <p>Followers</p>
+    </div>
+    <div class="flex flex-col justify-center items-center text-md/tight font-semibold">
+      <p><%= @user.following.count %></p>
+      <p>Following</p>
+    </div>
+  </div>
 </div>
-
 <%= render @posts %>
