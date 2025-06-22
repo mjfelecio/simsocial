@@ -1,6 +1,5 @@
-<div id="comment_form">
-  <%= form_for [comment.post, comment],
-   data: { controller: "reset-form", action: "turbo:submit-end->reset-form#clear" } do |form| %>    
+<turbo-frame id="comment_<%= comment.id %>">
+  <%= form_for [comment.post, comment], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#clear" } do |form| %>    
     <div class="flex flex-col">
       <%# Comment Input %>
       <%= form.text_area :content,
@@ -19,4 +18,4 @@
       </div>
     </div>
   <% end %>
-</div>
+</turbo-frame>

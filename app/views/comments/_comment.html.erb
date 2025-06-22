@@ -1,4 +1,4 @@
-<div id="comment_<%= comment.id %>" class="flex p-2 gap-2">
+<turbo-frame id="comment_<%= comment.id %>" class="flex p-2 gap-2">
   <div class="p-0.5 flex-shrink-0">
     <%# Profile Picture %>
     <%# TODO: Replace this with the real profile picture if available %>
@@ -27,4 +27,4 @@
       <%# TODO: Make this comment support likes %>
       <%= render "likes/likes_button", resource: comment %>
     </div>
-</div>
+</turbo-frame>
