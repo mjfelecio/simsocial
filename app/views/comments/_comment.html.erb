@@ -8,9 +8,8 @@
     <div class="flex grow flex-col p-0.5">
       <%# Comment Header %>
       <div class="flex gap-2 justify-between">
-        <%# TODO: Replace this with the comment author username and posted date %>
         <div>
-          <p class="text-sm">@mjfelecio • <%= posted_time(comment) %></p>
+          <p class="text-sm">@<%= comment.user.username %> • <%= posted_time(comment) %></p>
         </div>
         <%# Edit Delete Button %>
         <% if current_user == comment.user %>
