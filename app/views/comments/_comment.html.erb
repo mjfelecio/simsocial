@@ -10,7 +10,7 @@
       <div class="flex gap-2 justify-between">
         <%# TODO: Replace this with the comment author username and posted date %>
         <div>
-          <p class="text-sm">@mjfelecio • 6 min ago</p>
+          <p class="text-sm">@mjfelecio • <%= posted_time(comment) %></p>
         </div>
         <%# Edit Delete Button %>
         <% if current_user == comment.user %>
