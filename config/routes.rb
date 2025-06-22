@@ -12,6 +12,14 @@ Rails.application.routes.draw do
     patch "/profile", to: "users#update_profile", as: :update_profile
   end
 
+  # In routes.rb
+  resources :users, only: %i[ index show ] do
+    member do
+      post :follow
+      delete :unfollow
+    end
+  end
+
   resources :posts do
     resources :comments
     resources :likes, only: [ :create ]

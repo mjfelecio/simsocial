@@ -36,6 +36,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    @user = User.find(params[:id])
+    current_user.follow(@user)
+    redirect_back(fallback_location: @user)
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.unfollow(@user)
+    redirect_back(fallback_location: @user)
+  end
+
   private
     def has_profile?
       # I'll consider having a username as the bare minimum of a profile
