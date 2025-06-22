@@ -1,4 +1,4 @@
-<turbo-frame id="comment_<%= comment.id %>">
+<div id="comment_form">
   <%= form_for [comment.post, comment] do |form| %>
     <div class="flex flex-col">
       <%# Comment Input %>
@@ -18,4 +18,4 @@
       </div>
     </div>
   <% end %>
-</turbo-frame>
+</div>

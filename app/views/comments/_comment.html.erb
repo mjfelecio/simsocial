@@ -1,11 +1,10 @@
-<div class="flex p-2 gap-2">
+<div id="comment_<%= comment.id %>" class="flex p-2 gap-2">
   <div class="p-0.5 flex-shrink-0">
     <%# Profile Picture %>
     <%# TODO: Replace this with the real profile picture if available %>
     <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-8 rounded-full" %>
   </div>
   <%# Comment Container %>
-  <turbo-frame id="comment_<%= comment.id %>" class="w-full" >
     <div class="flex grow flex-col p-0.5">
       <%# Comment Header %>
       <div class="flex gap-2 justify-between">
@@ -29,5 +28,4 @@
       <%# TODO: Make this comment support likes %>
       <%= render "likes/likes_button", resource: comment %>
     </div>
-  </turbo-frame>
 </div>
