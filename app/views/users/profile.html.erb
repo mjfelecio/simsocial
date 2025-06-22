@@ -3,7 +3,7 @@
   <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-20 rounded-full border-2 border-gray-300 " %>
   <h3 class="text-2xl font-semibold"><%= @user.name %></h3>
   <strong>@<%= @user.username %></strong>
-  <div class="flex gap-4 py-1 p-2 mt-2">
+  <div class="flex gap-4 py-1 p-2 my-1">
     <div class="flex flex-col justify-center items-center text-md/tight font-semibold">
       <p><%= @user.followers.count %></p>
       <p>Followers</p>
@@ -13,5 +13,14 @@
       <p>Following</p>
     </div>
   </div>
+  <% if user_signed_in? && current_user != @user %>
+    <div class="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white text-md font-semibold rounded-lg py-1 px-3 shadow transition">
+      <% if current_user.following?(@user) %>
+        <%= link_to "Unfollow", unfollow_user_path(@user), data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Follow", follow_user_path(@user), data: { turbo_method: :post } %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <%= render @posts %>
