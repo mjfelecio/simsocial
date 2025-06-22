@@ -1,5 +1,5 @@
-<div class="mx-4 flex flex-col gap-2">
-  <% comments.each do |comment| %>
+<div id="comments-list" class="mx-4 flex flex-col gap-2">
+  <% comments.sort_by { |comment| -comment.created_at.to_i }.each do |comment| %>
     <%= render "comments/comment", comment: comment %>
   <% end %>
 </div>

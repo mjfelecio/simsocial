@@ -28,4 +28,11 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  helpers:
+    submit:
+      comment:
+        create: "Comment"
+        update: "Save"
+      post:
+          create: "Post"
+          update: "Save"

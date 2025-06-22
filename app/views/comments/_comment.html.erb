@@ -1,17 +1,15 @@
-<div class="flex p-2 gap-2">
+<turbo-frame id="comment_<%= comment.id %>" class="flex p-2 gap-2">
   <div class="p-0.5 flex-shrink-0">
     <%# Profile Picture %>
     <%# TODO: Replace this with the real profile picture if available %>
     <%= image_tag "profile-pic.png", alt: "Profile Picture", class: "size-8 rounded-full" %>
   </div>
   <%# Comment Container %>
-  <turbo-frame id="comment_<%= comment.id %>" class="w-full" >
     <div class="flex grow flex-col p-0.5">
       <%# Comment Header %>
       <div class="flex gap-2 justify-between">
-        <%# TODO: Replace this with the comment author username and posted date %>
         <div>
-          <p class="text-sm">@mjfelecio • 6 min ago</p>
+          <p class="text-sm">@<%= comment.user.username %> • <%= posted_time(comment) %></p>
         </div>
         <%# Edit Delete Button %>
         <% if current_user == comment.user %>
@@ -29,5 +27,4 @@
       <%# TODO: Make this comment support likes %>
       <%= render "likes/likes_button", resource: comment %>
     </div>
-  </turbo-frame>
-</div>
+</turbo-frame>
