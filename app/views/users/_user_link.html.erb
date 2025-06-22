@@ -15,10 +15,12 @@
     </p>
   </div>
   <% if user_signed_in? && current_user != user %>
-    <% if current_user.following?(user) %>
-      <%= link_to "Unfollow", unfollow_user_path(user), data: { turbo_method: :delete } %>
-    <% else %>
-      <%= link_to "Follow", follow_user_path(user), data: { turbo_method: :post } %>
-    <% end %>
+    <div class="bg-blue-600 hover:bg-blue-700 cursor-pointer text-white text-md font-semibold rounded-lg py-1 px-3 shadow transition">
+      <% if current_user.following?(user) %>
+        <%= link_to "Unfollow", unfollow_user_path(user), data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Follow", follow_user_path(user), data: { turbo_method: :post } %>
+      <% end %>
+    </div>
   <% end %>
 </div>
