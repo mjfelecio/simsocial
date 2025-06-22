@@ -40,9 +40,13 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    comment_id = @comment.id
     @comment.destroy!
 
     respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("comment_#{comment_id}")
+      end
       format.html { redirect_back_or_to root_path, status: :see_other, notice: "Comment deleted" }
       format.json { head :no_content }
     end
