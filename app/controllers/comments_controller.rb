@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: %i[ new edit update destroy ]
   before_action :set_post
   before_action :set_comment, only: %i[ destroy edit update show ]
 
@@ -15,8 +16,12 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.prepend("comments-list", partial: "comment", locals: { comment: @comment })
+          ]
         format.html { redirect_to user_post_path(@post.user, @post), notice: "Comment was successfully created." }
-        format.json { render user_post_path(@post.user, @post), status: :created, location: @comment }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
