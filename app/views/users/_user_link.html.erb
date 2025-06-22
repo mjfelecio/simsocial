@@ -14,7 +14,11 @@
       @<%= user.username %>
     </p>
   </div>
-  <button class="primary-btn">
-    Follow
-  </button>
+  <% if user_signed_in? && current_user != user %>
+    <% if current_user.following?(user) %>
+      <%= link_to "Unfollow", unfollow_user_path(user), data: { turbo_method: :delete } %>
+    <% else %>
+      <%= link_to "Follow", follow_user_path(user), data: { turbo_method: :post } %>
+    <% end %>
+  <% end %>
 </div>
