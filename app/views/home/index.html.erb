@@ -1,7 +1,17 @@
 <% content_for :title, "Simple Social | Home" %>
-
 <div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
+  <% unless @posts.to_a.empty? %>
+    <% @posts.each do |post| %>
+      <%= render post %>
+    <% end %>
+  <% else %>
+    <div class="flex flex-col justify-center items-center gap-3 m-24">
+      <p class="text-7xl select-none animate-pulse">😔</p>
+      <h2 class="text-2xl font-semibold text-gray-800">No posts to show yet</h2>
+      <p class="max-w-xs text-gray-500 text-center">
+        Follow other users to see their posts appear here and start engaging with the community!
+      </p>
+      <%= link_to "Find Users to Follow", users_path, class: "mt-4 inline-block bg-blue-600 text-white font-medium px-6 py-2 rounded-lg shadow hover:bg-blue-700 transition" %>
+    </div>
   <% end %>
 </div>
