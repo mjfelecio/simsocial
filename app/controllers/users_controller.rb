@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to root_path, notice: "User profile was successfully #{has_profile? ? "updated" : "created"}." }
+        format.html { redirect_to user_profile_path(@user), notice: "User profile was successfully #{has_profile? ? "updated" : "created"}." }
         format.json { render :profile, status: has_profile? ? :ok : :created, location: @user }
       else
         format.html { render :new_profile, status: :unprocessable_entity }
